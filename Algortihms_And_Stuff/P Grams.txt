@@ -1,0 +1,73 @@
+P Grams
+Problem Description
+
+A number (N) of lines (extending to infinity) in both directions are drawn on a plane. The lines are specified by the angle (positive or negative) made with the x axis (in degrees). It may be assumed that the different lines are not coincident (they do not overlap each other). The objective is to determine the number of parallelograms in the plane formed by these lines.
+
+If the lines are given with an angle of 10, 70, 30 and 30, the figure looks like this
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@3194024e:image1.png
+
+L1 is at 10 degrees to the x axis, L2 is at 70 degrees to the x axis, L3 and L4 are at 30 degrees to the x axis. It can be seen that there are no parallelograms formed by these lines
+
+Constraints
+
+N<=50
+
+-89 <= angle for any line <=90
+
+Input Format
+
+The first line of the input consists of a single integer, N.
+
+The next line consists of a series of comma separated integers (positive, zero or negative), each corresponding to a separate line, and giving the angle that it makes with the x axis (in degrees).
+
+Output
+
+The output is a single integer giving the number of parallelograms in the plane formed by the lines
+
+Test Case
+
+
+Explanation
+
+Example 1
+
+Input
+
+5
+
+20,20,-20,-20,50
+
+Output
+
+1
+
+Explanation
+
+There are 5 lines (N=5), with angles at 20,20,-20,-20and 50 degrees with the x axis. The figure looks like this
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@3194024e:image2.png
+
+There is one
+
+Hence the output is 1.
+
+Example 2
+
+Input
+
+6
+
+20,20,-20,-20,50,50
+
+Output
+
+3
+
+Explanation
+
+There are 6 lines (N=6) with angles 20,20, -20,-20,50 and 50 degrees with the x axis.. The figure looks like this
+
+com.tcs.cv.automata.ei.middleware.DocxToHtmlConverter@3194024e:image3.png
+
+There are three parallelograms formed by (L1, L2, L3, L4), (L1, L2, L5, L6) and (L3, L4, L5, L6). Hence the output is 3

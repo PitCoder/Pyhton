@@ -1,6 +1,12 @@
 
 # Created by https://www.gitignore.io/api/python
 
+### Images ###
+
+*.bit
+*.png
+*.jpg
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -15,11 +15,9 @@ def startEvalDirect(agent_ip, port, comunity_name, oid, mode):
 			database_name = input("Inserte el nombre de la base de datos: ")
 
 			if createDatabase(database_name, 1) == True:
-				
 				updateThread = threading.Thread(target = updateDirectGetDatabase, 
 					name = "Update - Worker", 
 					args = (database_name, comunity_name, agent_ip, port, oid))
-
 				updateThread.start()
 
 				return "SUCCESS"
@@ -38,13 +36,9 @@ def startEvalDirect(agent_ip, port, comunity_name, oid, mode):
 			database_name = input("Inserte el nombre de la base de datos: ")
 
 			if createDatabase(database_name, len(consulta)) == True:
-				init_time = rrdtool.last("RRD/" + database_name + str(".rrd"))
-
 				updateThread = threading.Thread(target = updateDirectWalkDatabase, 
 					name = "Update - Worker", 
 					args = (database_name, comunity_name, agent_ip, port, oid))
-
-				
 				updateThread.start()
 
 				return "SUCCESS"
@@ -63,10 +57,14 @@ def startEvalPercentage(agent_ip, port, comunity_name, oid_top, oid_variable, mo
 		if (consulta1 == "None" or consulta1 == "" or consulta2 == "None" or consulta2 == ""):
 			return "NO SUCH INSTANCE CURRENTLY EXISTS AT THIS OID - FAILURE"
 		else:
-			variable_top =  int(consultaSNMP(comunity_name, agent_ip, port, oid_top))
-			variable = int(consultaSNMP(comunity_name, agent_ip, port, oid_variable)) 
-			valor = "N:" + str((variable*100)/variable_top)
-			print(valor)
+			database_name = input("Inserte el nombre de la base de datos: ")
+
+			if createDatabase(database_name, 1) == True:
+				updateThread = threading.Thread(target = updatePercentageGetDatabase, 
+					name = "Update - Worker", 
+					args = (database_name, comunity_name, agent_ip, port, oid_top, oid_variable))
+				updateThread.start()
+
 			return "READ SUCESS"
 
 	elif mode == "2":
